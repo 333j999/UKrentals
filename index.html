@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>UKrentals — Premium car hire. No credit check. 17+.</title>
+<meta name="description" content="Premium UK car hire with full comp insurance included. No credit checks. Drivers 17+. GOV.UK registered." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: oklch(0.965 0.008 75);
+  --bg-soft: oklch(0.985 0.005 75);
+  --paper: oklch(0.99 0.003 75);
+  --ink: oklch(0.20 0.012 60);
+  --ink-soft: oklch(0.45 0.012 60);
+  --ink-quiet: oklch(0.62 0.010 60);
+  --rule: oklch(0.90 0.010 75);
+  --rule-strong: oklch(0.82 0.012 75);
+  --accent: oklch(0.62 0.135 48);
+  --accent-deep: oklch(0.48 0.130 45);
+  --accent-tint: oklch(0.94 0.030 70);
+  --shadow: 0 1px 2px oklch(0.20 0.012 60 / 0.04), 0 8px 24px oklch(0.20 0.012 60 / 0.06);
+  --shadow-lift: 0 2px 4px oklch(0.20 0.012 60 / 0.05), 0 24px 56px oklch(0.20 0.012 60 / 0.12);
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Layout ---------- */
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+@media (min-width: 900px) { .wrap { padding: 0 48px; } }
+
+/* ---------- Nav ---------- */
+header.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: oklch(0.965 0.008 75 / 0.85);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 24px; }
+.brand { display: flex; align-items: baseline; gap: 8px; text-decoration: none; color: var(--ink); }
+.brand-mark {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.brand-mark em { font-style: italic; color: var(--accent-deep); font-weight: 500; }
+.brand-tag { font-size: 11px; color: var(--ink-quiet); letter-spacing: 0.08em; text-transform: uppercase; display: none; }
+@media (min-width: 700px) { .brand-tag { display: inline; } }
+.nav-links { display: none; gap: 32px; }
+@media (min-width: 800px) { .nav-links { display: flex; } }
+.nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 14px; font-weight: 500; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 999px;
+  background: var(--ink); color: var(--bg);
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: transform 180ms cubic-bezier(0.16,1,0.3,1), background 180ms;
+}
+.nav-cta:hover { transform: translateY(-1px); background: var(--accent-deep); }
+.nav-cta svg { width: 16px; height: 16px; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 64px 0 80px; position: relative; overflow: hidden; }
+@media (min-width: 900px) { .hero { padding: 96px 0 120px; } }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 64px; } }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 500;
+  color: var(--ink-soft); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.eyebrow::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: oklch(0.65 0.18 145); box-shadow: 0 0 0 4px oklch(0.65 0.18 145 / 0.18);
+}
+
+h1.headline {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(40px, 7vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+h1.headline em {
+  font-style: italic; font-weight: 400;
+  color: var(--accent-deep);
+}
+.lede {
+  font-size: clamp(16px, 1.4vw, 18px);
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin-bottom: 36px;
+}
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 26px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: transform 180ms cubic-bezier(0.16,1,0.3,1), background 180ms, box-shadow 180ms;
+  border: none; cursor: pointer; font-family: inherit;
+}
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { transform: translateY(-1px); background: var(--accent-deep); box-shadow: var(--shadow-lift); }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--rule-strong); }
+.btn-secondary:hover { background: var(--paper); border-color: var(--ink); }
+.btn svg { width: 18px; height: 18px; }
+
+.trust-strip {
+  display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center;
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--rule);
+}
+.trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-soft); }
+.trust-item svg { width: 18px; height: 18px; color: var(--accent-deep); flex-shrink: 0; }
+
+/* ---------- Hero showcase card ---------- */
+.showcase {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(135deg, oklch(0.32 0.020 60), oklch(0.18 0.010 60));
+  aspect-ratio: 4 / 5;
+  box-shadow: var(--shadow-lift);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 28px;
+  color: oklch(0.98 0.005 75);
+}
+.showcase::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("images/defender-hero.jpg");
+  background-size: cover; background-position: center;
+  opacity: 0.85;
+  z-index: 0;
+}
+.showcase::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, oklch(0.20 0.012 60 / 0.10) 0%, oklch(0.20 0.012 60 / 0.55) 65%, oklch(0.15 0.010 60 / 0.85) 100%);
+  z-index: 1;
+}
+.showcase > * { position: relative; z-index: 2; }
+.showcase-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.showcase-badge {
+  font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 999px;
+  background: oklch(0.98 0.005 75 / 0.15);
+  border: 1px solid oklch(0.98 0.005 75 / 0.25);
+  backdrop-filter: blur(8px);
+}
+.showcase-plate {
+  font-family: "Courier New", monospace; font-weight: 700;
+  font-size: 13px; padding: 6px 10px; border-radius: 4px;
+  background: oklch(0.85 0.18 95); color: oklch(0.18 0.010 60);
+  letter-spacing: 0.04em;
+}
+.showcase-bottom { }
+.showcase-meta { font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; opacity: 0.75; margin-bottom: 8px; }
+.showcase-name { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); font-weight: 500; line-height: 1.05; margin-bottom: 16px; letter-spacing: -0.02em; }
+.showcase-price { display: flex; align-items: baseline; gap: 8px; padding-top: 16px; border-top: 1px solid oklch(0.98 0.005 75 / 0.20); }
+.showcase-price-amount { font-family: var(--serif); font-size: 32px; font-weight: 500; }
+.showcase-price-per { font-size: 13px; opacity: 0.7; }
+
+/* ---------- Section header ---------- */
+section { padding: 80px 0; }
+@media (min-width: 900px) { section { padding: 120px 0; } }
+
+.section-head { margin-bottom: 56px; display: grid; grid-template-columns: 1fr; gap: 24px; align-items: end; }
+@media (min-width: 800px) { .section-head { grid-template-columns: 1fr 1fr; } }
+.section-eyebrow { font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-quiet); margin-bottom: 12px; }
+.section-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.05; letter-spacing: -0.02em; color: var(--ink);
+  max-width: 18ch;
+}
+.section-title em { font-style: italic; color: var(--accent-deep); font-weight: 400; }
+.section-side { color: var(--ink-soft); font-size: 15px; max-width: 38ch; }
+
+/* ---------- Fleet ---------- */
+.fleet { background: var(--bg-soft); }
+.fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 700px) { .fleet-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; } }
+@media (min-width: 1100px) {
+  .fleet-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(0, auto);
+    gap: 28px;
+  }
+  .car--feature { grid-column: span 3; grid-row: span 2; }
+  .car--wide { grid-column: span 3; }
+  .car--std { grid-column: span 2; }
+}
+
+.car {
+  display: flex; flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 320ms cubic-bezier(0.16,1,0.3,1), box-shadow 320ms, border-color 320ms;
+}
+.car:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); border-color: var(--rule-strong); }
+
+.car-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, oklch(0.30 0.015 60), oklch(0.18 0.008 60));
+  overflow: hidden;
+}
+.car--feature .car-photo { aspect-ratio: 4 / 3; }
+.car-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16,1,0.3,1);
+}
+.car:hover .car-photo img { transform: scale(1.04); }
+.car-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, oklch(0.20 0.012 60 / 0.05) 50%, oklch(0.20 0.012 60 / 0.55) 100%);
+  pointer-events: none;
+}
+.car-tag {
+  position: absolute; top: 14px; left: 14px;
+  font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 999px;
+  background: oklch(0.98 0.005 75 / 0.95); color: var(--ink);
+  font-weight: 600;
+}
+.car-plate {
+  position: absolute; bottom: 14px; right: 14px;
+  font-family: "Courier New", monospace; font-weight: 700;
+  font-size: 11px; padding: 4px 8px; border-radius: 3px;
+  background: oklch(0.85 0.18 95); color: oklch(0.18 0.010 60);
+  letter-spacing: 0.04em;
+}
+
+.car-body { padding: 22px 22px 26px; display: flex; flex-direction: column; flex: 1; }
+.car--feature .car-body { padding: 28px 28px 32px; }
+.car-year { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-quiet); margin-bottom: 6px; }
+.car-name { font-family: var(--serif); font-weight: 500; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); font-size: 22px; margin-bottom: 16px; }
+.car--feature .car-name { font-size: 32px; margin-bottom: 20px; }
+.car-perks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: auto; padding-bottom: 18px; }
+.car-perk { font-size: 11px; padding: 4px 9px; border-radius: 999px; background: var(--accent-tint); color: var(--accent-deep); font-weight: 500; }
+.car-foot { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 18px; border-top: 1px solid var(--rule); }
+.car-price { display: flex; flex-direction: column; }
+.car-price-amount { font-family: var(--serif); font-size: 26px; font-weight: 500; color: var(--ink); line-height: 1; }
+.car--feature .car-price-amount { font-size: 34px; }
+.car-price-per { font-size: 12px; color: var(--ink-quiet); margin-top: 4px; }
+.car-cta {
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  transition: background 180ms, border-color 180ms, color 180ms;
+}
+.car-cta:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.car-cta svg { width: 14px; height: 14px; }
+
+/* ---------- How it works ---------- */
+.how { background: var(--bg); }
+.steps {
+  display: grid; grid-template-columns: 1fr; gap: 32px;
+  counter-reset: step;
+}
+@media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 0; } }
+
+.step { padding: 32px 0; position: relative; counter-increment: step; }
+@media (min-width: 800px) {
+  .step { padding: 0 40px; }
+  .step + .step { border-left: 1px solid var(--rule); }
+  .step:first-child { padding-left: 0; }
+  .step:last-child { padding-right: 0; }
+}
+.step-num {
+  font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: 56px; color: var(--accent-deep);
+  line-height: 1; letter-spacing: -0.04em;
+  margin-bottom: 20px;
+}
+.step-num::before { content: "0" counter(step); }
+.step-title { font-family: var(--serif); font-weight: 500; font-size: 22px; letter-spacing: -0.015em; margin-bottom: 12px; }
+.step-text { color: var(--ink-soft); font-size: 15px; max-width: 36ch; }
+
+/* ---------- Pitch / value ---------- */
+.pitch { background: var(--ink); color: var(--bg); }
+.pitch-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: end; }
+@media (min-width: 900px) { .pitch-grid { grid-template-columns: 1.4fr 1fr; gap: 80px; } }
+.pitch h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.05; letter-spacing: -0.02em;
+}
+.pitch h2 em { font-style: italic; color: oklch(0.78 0.13 60); font-weight: 400; }
+.pitch-points { list-style: none; display: flex; flex-direction: column; gap: 24px; }
+.pitch-points li { display: flex; gap: 16px; align-items: flex-start; padding-bottom: 24px; border-bottom: 1px solid oklch(0.98 0.005 75 / 0.12); }
+.pitch-points li:last-child { border-bottom: 0; padding-bottom: 0; }
+.pitch-points svg { width: 22px; height: 22px; color: oklch(0.78 0.13 60); flex-shrink: 0; margin-top: 3px; }
+.pitch-points strong { display: block; font-weight: 600; margin-bottom: 4px; font-size: 16px; }
+.pitch-points span { color: oklch(0.78 0.005 75); font-size: 14px; }
+
+/* ---------- CTA strip ---------- */
+.cta-strip { padding: 96px 0; background: var(--bg-soft); text-align: center; }
+.cta-strip h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.02em;
+  margin-bottom: 16px; max-width: 18ch; margin-left: auto; margin-right: auto;
+}
+.cta-strip h2 em { font-style: italic; color: var(--accent-deep); font-weight: 400; }
+.cta-strip p { color: var(--ink-soft); font-size: 17px; margin-bottom: 36px; max-width: 50ch; margin-left: auto; margin-right: auto; }
+.cta-strip .cta-row { justify-content: center; }
+
+/* ---------- Footer ---------- */
+footer { padding: 64px 0 32px; background: var(--bg); border-top: 1px solid var(--rule); color: var(--ink-soft); }
+.foot-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+@media (min-width: 700px) { .foot-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; } }
+.foot-brand .brand-mark { font-size: 26px; }
+.foot-brand p { margin-top: 16px; font-size: 14px; max-width: 36ch; }
+.foot-col h4 { font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-quiet); margin-bottom: 16px; }
+.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.foot-col a { color: var(--ink-soft); text-decoration: none; font-size: 14px; }
+.foot-col a:hover { color: var(--ink); }
+.foot-bottom { display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--ink-quiet); }
+@media (min-width: 700px) { .foot-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+
+/* ---------- Misc ---------- */
+::selection { background: var(--accent); color: var(--bg); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+
+<!-- =============== NAV =============== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">UK<em>rentals</em></span>
+      <span class="brand-tag">Est. London</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#fleet">Fleet</a>
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/447000000000" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 14.9 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- =============== HERO =============== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Available today · London &amp; surrounding</div>
+        <h1 class="headline">Cars they wouldn't approve you for. <em>Now you can drive.</em></h1>
+        <p class="lede">Premium hire from £250 a month with full comprehensive insurance and no credit checks. Drivers 17 and up. GOV.UK registered.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#fleet">
+            Browse the fleet
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="https://wa.me/447000000000" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            Message us
+          </a>
+        </div>
+
+        <div class="trust-strip">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4v6c0 5-3.5 9.5-9 10-5.5-.5-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            GOV.UK Registered
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l3-9h12l3 9M5 13h14v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6z"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/></svg>
+            Full comp insurance included
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+            17+ drivers welcome
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            No credit check, ever
+          </div>
+        </div>
+      </div>
+
+      <aside class="showcase" aria-label="Featured vehicle">
+        <div class="showcase-top">
+          <span class="showcase-badge">Most popular</span>
+          <span class="showcase-plate">AM07ALL</span>
+        </div>
+        <div class="showcase-bottom">
+          <div class="showcase-meta">2021 · Defender X</div>
+          <div class="showcase-name">Land Rover<br/>Defender</div>
+          <div class="showcase-price">
+            <span class="showcase-price-amount">£450</span>
+            <span class="showcase-price-per">per month · all in</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- =============== FLEET =============== -->
+<section class="fleet" id="fleet">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">The fleet</div>
+        <h2 class="section-title">Ten cars. <em>All on the road now.</em></h2>
+      </div>
+      <p class="section-side">Inventory updates daily from our Instagram. Tap any vehicle to reserve over WhatsApp, paperwork sent the same day.</p>
+    </div>
+
+    <div class="fleet-grid">
+
+      <!-- Feature: Mercedes S Class -->
+      <article class="car car--feature">
+        <div class="car-photo">
+          <img src="images/s-class.jpg" alt="Mercedes-Benz S-Class" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-tag">Flagship</span>
+          <span class="car-plate">MX69 WYL</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2020</div>
+          <div class="car-name">Mercedes-Benz S-Class</div>
+          <div class="car-perks">
+            <span class="car-perk">Full comp insurance</span>
+            <span class="car-perk">No credit check</span>
+            <span class="car-perk">Chauffeur option</span>
+          </div>
+          <div class="car-foot">
+            <div class="car-price">
+              <span class="car-price-amount">£550</span>
+              <span class="car-price-per">per month</span>
+            </div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Wide: Audi RS7 -->
+      <article class="car car--wide">
+        <div class="car-photo">
+          <img src="images/audi-rs7.jpg" alt="Audi RS7" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-tag">Performance</span>
+          <span class="car-plate">9 KUN</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2020</div>
+          <div class="car-name">Audi RS7</div>
+          <div class="car-perks">
+            <span class="car-perk">600 bhp</span>
+            <span class="car-perk">Insurance included</span>
+          </div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£450</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: BMW X3 -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/bmw-x3.jpg" alt="BMW X3" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-plate">BB16 HAS</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2020</div>
+          <div class="car-name">BMW X3</div>
+          <div class="car-perks"><span class="car-perk">Insurance incl.</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£400</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: Defender 2020 -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/defender-2020.jpg" alt="Land Rover Defender" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-plate">XH22 NKO</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2020</div>
+          <div class="car-name">Land Rover Defender</div>
+          <div class="car-perks"><span class="car-perk">No credit check</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£450</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: BMW 420i -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/bmw-420i.jpg" alt="BMW 420i" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-tag">New 2024</span>
+          <span class="car-plate">BB24 BMW</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2024</div>
+          <div class="car-name">BMW 420i</div>
+          <div class="car-perks"><span class="car-perk">Red leather</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£400</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: BMW X7 -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/bmw-x7.jpg" alt="BMW X7" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-plate">RF18 622</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2019</div>
+          <div class="car-name">BMW X7</div>
+          <div class="car-perks"><span class="car-perk">7 seats</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£500</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: Mercedes A35 -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/mercedes-a35.jpg" alt="Mercedes A35 AMG" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-plate">LR69 XNA</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2019</div>
+          <div class="car-name">Mercedes A35 AMG</div>
+          <div class="car-perks"><span class="car-perk">AMG line</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£450</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: Ford Transit -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/ford-transit.jpg" alt="Ford Transit Custom" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-tag">Trade</span>
+          <span class="car-plate">XH22 NKO</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2022</div>
+          <div class="car-name">Ford Transit Custom</div>
+          <div class="car-perks"><span class="car-perk">Trade-ready</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£250</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Std: Defender 2024 -->
+      <article class="car car--std">
+        <div class="car-photo">
+          <img src="images/defender-2024.jpg" alt="Land Rover Defender 2024" loading="lazy" />
+          <div class="car-photo-overlay"></div>
+          <span class="car-tag">New 2024</span>
+          <span class="car-plate">DF24 LRD</span>
+        </div>
+        <div class="car-body">
+          <div class="car-year">2024</div>
+          <div class="car-name">Land Rover Defender</div>
+          <div class="car-perks"><span class="car-perk">Latest model</span></div>
+          <div class="car-foot">
+            <div class="car-price"><span class="car-price-amount">£450</span><span class="car-price-per">per month</span></div>
+            <a class="car-cta" href="#">Reserve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============== HOW IT WORKS =============== -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Three steps</div>
+        <h2 class="section-title">From DM to <em>driving away.</em></h2>
+      </div>
+      <p class="section-side">No dealership runaround. No credit application. The whole thing happens between you, us, and one short visit.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <h3 class="step-title">Pick your car</h3>
+        <p class="step-text">Browse the fleet above or send us a screenshot from Instagram. We confirm availability the same hour.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3 class="step-title">Sign &amp; pay deposit</h3>
+        <p class="step-text">Driving licence, proof of address, refundable deposit. No credit search runs on you. Ever.</p>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <h3 class="step-title">Drive home</h3>
+        <p class="step-text">Collect from our London yard with the tank full, the car valeted, and your insurance already live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== PITCH =============== -->
+<section class="pitch" id="why">
+  <div class="wrap">
+    <div class="pitch-grid">
+      <h2>Built for the drivers <em>the big firms send away.</em></h2>
+      <ul class="pitch-points">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <div>
+            <strong>No credit checks. Not soft, not hard.</strong>
+            <span>Your application doesn't touch a credit file. New drivers, thin file, past CCJs — none of it matters here.</span>
+          </div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <div>
+            <strong>Full comp insurance, every car.</strong>
+            <span>You're insured on the policy from minute one. No add-ons, no add-on insurance brokers, no upsell at pickup.</span>
+          </div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <div>
+            <strong>17 and up. Real cars.</strong>
+            <span>Most rental firms cap at 21 or 25 and charge a young driver surcharge. We don't. Same fleet, same price.</span>
+          </div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <div>
+            <strong>Registered with GOV.UK Companies House.</strong>
+            <span>Real business, real address, real director on file. Pull our company number any time.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CTA =============== -->
+<section class="cta-strip">
+  <div class="wrap">
+    <h2>The car's ready. <em>Are you?</em></h2>
+    <p>Message us on WhatsApp with the car you want. Most reservations confirm in under an hour.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/447000000000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+        Start on WhatsApp
+      </a>
+      <a class="btn btn-secondary" href="#fleet">See the fleet</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============== FOOTER =============== -->
+<footer id="faq">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-mark">UK<em>rentals</em></span>
+        <p>Premium UK car hire with no credit checks and full comprehensive insurance included. Drivers 17 and up. Registered at Companies House.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Fleet</h4>
+        <ul>
+          <li><a href="#fleet">Luxury</a></li>
+          <li><a href="#fleet">Performance</a></li>
+          <li><a href="#fleet">4×4 &amp; SUV</a></li>
+          <li><a href="#fleet">Trade vans</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#why">Why us</a></li>
+          <li><a href="#">Companies House</a></li>
+          <li><a href="#">Terms of hire</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Talk to us</h4>
+        <ul>
+          <li><a href="https://wa.me/447000000000">WhatsApp</a></li>
+          <li><a href="https://instagram.com/ukrentals">Instagram</a></li>
+          <li><a href="https://tiktok.com/@ukrentals">TikTok</a></li>
+          <li><a href="tel:+447000000000">Phone</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© UKrentals Ltd. Registered in England &amp; Wales. Company no. 00000000.</span>
+      <span>Vehicles subject to availability. Deposit and ID required.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
